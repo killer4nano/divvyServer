@@ -23,6 +23,13 @@ public class RequestController {
 	int register(@PathVariable("user") String username, @PathVariable("password") String password) {
 		return SqlCommunication.register(username, password);
 	}
+	
+	@RequestMapping("/checkuser/{user}")
+	@ResponseBody
+	int checkUser(@PathVariable("user") String username) {
+		return SqlCommunication.checkUser(username);
+	}
+		
 		
 	
 

@@ -67,6 +67,28 @@ public class SqlCommunication {
 	   
 	   
 	}
+	
+	public static int checkUser(String name){
+	    Connection connect = sqlConnection();
+	    String queryString = "";
+	    try{
+	        Statement statement = connect.createStatement();
+	        queryString = "select * from users where username = \"" +name + "\"";
+	        ResultSet result = statement.executeQuery(queryString);
+      
+	    	if(result.next()) {
+	    		return result.getInt(1);
+	    	}
+	    	return 0;
+	    }
+	   
+	    catch(Exception e){
+	        System.out.println(e);
+	        return 0;
+	    }
+	   
+	   
+	}
    
                
    
